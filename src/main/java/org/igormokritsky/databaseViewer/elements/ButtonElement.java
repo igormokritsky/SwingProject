@@ -1,6 +1,6 @@
-package org.igormokritsky.DatabaseViewer.dao;
+package org.igormokritsky.databaseViewer.elements;
 
-public class ButtonElements {
+public class ButtonElement {
     private String tables_in_migrate_schema;
 
     public String getTables_in_migrate_schema() {

@@ -1,38 +1,38 @@
-package org.igormokritsky.DatabaseViewer;
+package org.igormokritsky.databaseViewer;
 
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.MapListHandler;
-import org.igormokritsky.DatabaseViewer.dao.ButtonElements;
-import org.igormokritsky.DatabaseViewer.dao.Fields;
-import org.igormokritsky.DatabaseViewer.db.DBConnection;
+import org.igormokritsky.databaseViewer.elements.ButtonElement;
+import org.igormokritsky.databaseViewer.elements.FieldElement;
+import org.igormokritsky.databaseViewer.db.DBConnection;
 
 import java.sql.*;
 import java.util.List;
 import java.util.Map;
 
-public class DatabaseMetadata {
+public class MetadataImpl {
     private static final String TABLES = "SHOW tables FROM migrate_schema";
     private static final String FIELDS = "SHOW FIELDS FROM ";
     private static final String SELECT = "SELECT * FROM ";
 
 
-    public List<ButtonElements> showTables() throws SQLException {
-        ResultSetHandler<List<ButtonElements>> resultSetHandler = new BeanListHandler<>(ButtonElements.class);
+    public List<ButtonElement> showTables() throws SQLException {
+        ResultSetHandler<List<ButtonElement>> resultSetHandler = new BeanListHandler<>(ButtonElement.class);
         QueryRunner runner = new QueryRunner();
-        List<ButtonElements> result = runner.query(DBConnection.getConnection(), TABLES, resultSetHandler);
-        for (ButtonElements buttonElements : result) {
+        List<ButtonElement> result = runner.query(DBConnection.getConnection(), TABLES, resultSetHandler);
+        for (ButtonElement buttonElements : result) {
             System.out.println(buttonElements.getTables_in_migrate_schema());
         }
         return result;
     }
 
-    public List<Fields> showFields(String tableName) throws SQLException {
-        ResultSetHandler<List<Fields>> resultSetHandler = new BeanListHandler<>(Fields.class);
+    public List<FieldElement> showFields(String tableName) throws SQLException {
+        ResultSetHandler<List<FieldElement>> resultSetHandler = new BeanListHandler<>(FieldElement.class);
         QueryRunner runner = new QueryRunner();
-        List<Fields> result = runner.query(DBConnection.getConnection(), FIELDS + tableName, resultSetHandler);
-        for (Fields fields : result) {
+        List<FieldElement> result = runner.query(DBConnection.getConnection(), FIELDS + tableName, resultSetHandler);
+        for (FieldElement fields : result) {
             System.out.println(fields.getField());
         }
         return result;

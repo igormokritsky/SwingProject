@@ -1,31 +1,37 @@
 package org.igormokritsky;
 
-import org.igormokritsky.DatabaseViewer.CustomActionListener;
-import org.igormokritsky.DatabaseViewer.DatabaseMetadata;
-import org.igormokritsky.DatabaseViewer.dao.ButtonElements;
+import org.igormokritsky.databaseViewer.ButtonActionListener;
+import org.igormokritsky.databaseViewer.MetadataImpl;
+import org.igormokritsky.databaseViewer.elements.ButtonElement;
+import org.igormokritsky.databaseViewer.elements.FieldElement;
+
 import javax.swing.*;
 import java.awt.*;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 
 public class App extends JPanel {
 
     public static void createGUI() throws SQLException {
         JFrame frame = new JFrame();
-        DatabaseMetadata databaseMetadata = new DatabaseMetadata();
-        List<ButtonElements> elements = databaseMetadata.showTables();
+        MetadataImpl databaseMetadata = new MetadataImpl();
+        List<ButtonElement> elements = databaseMetadata.showTables();
 
         JPanel buttons = new JPanel(new GridLayout(0, 1));
 
-        for (ButtonElements buttonElements : elements) {
+        for (ButtonElement buttonElements : elements) {
             JButton jButton = new JButton(buttonElements.getTables_in_migrate_schema());
-            jButton.addActionListener(new CustomActionListener(buttonElements));
+            jButton.addActionListener(new ButtonActionListener(buttonElements));
             buttons.add(jButton);
+
         }
 
 
         JPanel panel = new JPanel(new BorderLayout());
+        JTable jTable = new JTable();
+
         panel.add(buttons, BorderLayout.CENTER);
         frame.add(panel, BorderLayout.WEST);
         frame.setTitle("SwingSandbox");
@@ -34,6 +40,8 @@ public class App extends JPanel {
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
+
+
     }
 
 

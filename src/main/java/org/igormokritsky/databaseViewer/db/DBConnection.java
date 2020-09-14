@@ -1,4 +1,4 @@
-package org.igormokritsky.DatabaseViewer.db;
+package org.igormokritsky.databaseViewer.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
