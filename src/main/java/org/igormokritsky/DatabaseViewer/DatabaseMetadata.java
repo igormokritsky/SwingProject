@@ -9,7 +9,6 @@ import org.igormokritsky.DatabaseViewer.dao.Fields;
 import org.igormokritsky.DatabaseViewer.db.DBConnection;
 
 import java.sql.*;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
