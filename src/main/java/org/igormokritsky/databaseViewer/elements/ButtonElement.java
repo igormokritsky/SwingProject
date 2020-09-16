@@ -1,15 +1,16 @@
 package org.igormokritsky.databaseViewer.elements;
 
 import lombok.Getter;
+import lombok.Setter;
 
 public class ButtonElement {
+
     @Getter
-    private final String tablesInMigrateSchema;
+    @Setter
+    private String tablesInMigrateSchema;
 
     public ButtonElement(String tablesInMigrateSchema) {
         this.tablesInMigrateSchema = tablesInMigrateSchema;
     }
-
-
 
 }
