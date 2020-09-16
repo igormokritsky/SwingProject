@@ -28,9 +28,7 @@ public class App extends JPanel {
 
     private static final JFrame frame = new JFrame();
     private static final JPanel panel = new JPanel();
-    private static JTable jTable;
     private static final JPanel buttons = new JPanel(new GridLayout(0, 1));
-    private static JScrollPane jScrollPane;
     private static final MetadataHelper metadataHelper = new MetadataHelper();
 
 
@@ -42,7 +40,7 @@ public class App extends JPanel {
             String elementsData = buttonElements.getTablesInMigrateSchema();
             JButton jButton = new JButton(elementsData);
             buttons.add(jButton);
-            jButton.addActionListener(new CustomActionListener(elementsData, metadataHelper, frame, panel, jScrollPane, jTable)
+            jButton.addActionListener(new CustomActionListener(elementsData, metadataHelper, frame, panel)
 //          {
 //                @SneakyThrows
 //                @Override
