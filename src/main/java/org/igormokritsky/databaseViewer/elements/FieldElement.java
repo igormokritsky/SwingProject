@@ -8,10 +8,6 @@ public class FieldElement {
         return field;
     }
 
-    public void setField(String field) {
-        this.field = field;
-    }
-
     @Override
     public String toString() {
         return field;
