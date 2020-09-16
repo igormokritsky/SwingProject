@@ -1,12 +1,11 @@
 package org.igormokritsky.databaseViewer.elements;
 
+import lombok.Getter;
+
 public class FieldElement {
 
+    @Getter
     private String field;
-
-    public String getField() {
-        return field;
-    }
 
     @Override
     public String toString() {

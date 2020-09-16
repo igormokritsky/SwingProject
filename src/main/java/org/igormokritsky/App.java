@@ -2,7 +2,6 @@ package org.igormokritsky;
 
 import lombok.SneakyThrows;
 import org.igormokritsky.databaseViewer.db.MetadataHelper;
-import org.igormokritsky.databaseViewer.db.MetadataAccess;
 import org.igormokritsky.databaseViewer.elements.ButtonElement;
 import org.igormokritsky.databaseViewer.elements.FieldElement;
 import javax.swing.JTable;
@@ -30,22 +29,26 @@ public class App extends JPanel {
     private static JTable jTable = new JTable();
     private static final JPanel buttons = new JPanel(new GridLayout(0, 1));
     private static JScrollPane jScrollPane;
-    private static final MetadataAccess metadataAccess = new MetadataAccess();
+    private static final MetadataHelper metadataHelper = new MetadataHelper();
+
+
 
     public static void createGUI() throws SQLException {
 
-        MetadataHelper databaseMetadata = new MetadataHelper();
-        List<ButtonElement> elements = databaseMetadata.showTables();
+        List<ButtonElement> elements = metadataHelper.showTables();
 
         for (ButtonElement buttonElements : elements) {
-            JButton jButton = new JButton(buttonElements.getTablesInMigrateSchema());
+
+            String elementsData = buttonElements.getTablesInMigrateSchema();
+            JButton jButton = new JButton(elementsData);
+
             buttons.add(jButton);
             jButton.addActionListener(new ActionListener() {
                 @SneakyThrows
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    fields = metadataAccess.getDatabaseMetadata().showFields(buttonElements.getTablesInMigrateSchema());
-                    data = metadataAccess.getDatabaseMetadata().selectAll(buttonElements.getTablesInMigrateSchema());
+                    fields = metadataHelper.showFields(elementsData);
+                    data = metadataHelper.selectAll(elementsData);
                     Object[][] objectRows = data.stream().map(m -> m.values().toArray()).toArray(Object[][]::new);
                     if (jScrollPane != null) {
                         panel.remove(jScrollPane);
@@ -68,7 +71,6 @@ public class App extends JPanel {
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
-
     }
 
     public static void main(String[] args) {
