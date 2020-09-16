@@ -40,25 +40,7 @@ public class App extends JPanel {
             String elementsData = buttonElements.getTablesInMigrateSchema();
             JButton jButton = new JButton(elementsData);
             buttons.add(jButton);
-            jButton.addActionListener(new CustomActionListener(elementsData, metadataHelper, frame, panel)
-//          {
-//                @SneakyThrows
-//                @Override
-//                public void actionPerformed(ActionEvent e) {
-//                    List<FieldElement> fields = metadataHelper.showFields(elementsData);
-//                    List<Map<String, Object>> data = metadataHelper.selectAll(elementsData);
-//                    Object[][] objectRows = data.stream().map(m -> m.values().toArray()).toArray(Object[][]::new);
-//                    if (jScrollPane != null) {
-//                        panel.remove(jScrollPane);
-//                    }
-//                    jTable = new JTable(objectRows, fields.toArray());
-//                    jScrollPane = new JScrollPane(jTable);
-//                    panel.add(jScrollPane);
-//                    frame.revalidate();
-//                    frame.repaint();
-//                }
-//            }
-            );
+            jButton.addActionListener(new CustomActionListener(elementsData, metadataHelper, frame, panel));
         }
 
 

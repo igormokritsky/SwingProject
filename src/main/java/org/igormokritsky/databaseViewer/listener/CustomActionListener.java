@@ -16,12 +16,11 @@ import java.util.List;
 
 public class CustomActionListener implements ActionListener {
 
+    private static JScrollPane jScrollPane;
     String elementsData;
     MetadataHelper metadataHelper;
     JFrame frame;
     JPanel panel;
-
-    private static JScrollPane jScrollPane;
 
     public CustomActionListener(String elementsData, MetadataHelper metadataHelper, JFrame frame,
                                 JPanel panel) {
