@@ -39,7 +39,7 @@ public class MetadataHelper {
             ResultSetHandler<List<FieldElement>> resultSetHandler = new BeanListHandler<>(FieldElement.class);
             List<FieldElement> result = runner.query(dbUtils.getConnection(), FIELDS + tableName, resultSetHandler);
             for (FieldElement fields : result) {
-                System.out.println(fields.getField());
+                System.out.println(fields);
             }
             return result;
         } finally {

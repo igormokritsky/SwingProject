@@ -16,7 +16,7 @@ import java.util.List;
 
 public class CustomActionListener implements ActionListener {
 
-    private static JScrollPane jScrollPane;
+    private JScrollPane jScrollPane;
     private final String elementsData;
     private final MetadataHelper metadataHelper;
     private final JFrame frame;
