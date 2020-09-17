@@ -17,10 +17,10 @@ import java.util.List;
 public class CustomActionListener implements ActionListener {
 
     private static JScrollPane jScrollPane;
-    String elementsData;
-    MetadataHelper metadataHelper;
-    JFrame frame;
-    JPanel panel;
+    private final String elementsData;
+    private final MetadataHelper metadataHelper;
+    private final JFrame frame;
+    private final JPanel panel;
 
     public CustomActionListener(String elementsData, MetadataHelper metadataHelper, JFrame frame,
                                 JPanel panel) {
