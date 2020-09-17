@@ -3,11 +3,11 @@ package org.igormokritsky.databaseViewer.listener;
 
 import lombok.SneakyThrows;
 import org.igormokritsky.databaseViewer.db.MetadataHelper;
-import org.igormokritsky.databaseViewer.elements.ButtonElement;
 import org.igormokritsky.databaseViewer.elements.FieldElement;
-
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JFrame;
+import javax.swing.JTable;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Map;

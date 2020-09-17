@@ -1,26 +1,19 @@
 package org.igormokritsky;
 
-import lombok.Getter;
-import lombok.Setter;
+
 import lombok.SneakyThrows;
 import org.igormokritsky.databaseViewer.db.MetadataHelper;
 import org.igormokritsky.databaseViewer.elements.ButtonElement;
-import org.igormokritsky.databaseViewer.elements.FieldElement;
 import org.igormokritsky.databaseViewer.listener.CustomActionListener;
-
-import javax.swing.JTable;
 import javax.swing.JPanel;
 import javax.swing.JFrame;
-import javax.swing.JScrollPane;
 import javax.swing.JButton;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.image.ColorModel;
+import java.awt.GridLayout;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+
 
 
 public class App extends JPanel {

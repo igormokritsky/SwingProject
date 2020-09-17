@@ -2,7 +2,6 @@ package org.igormokritsky.databaseViewer.resultSet;
 
 import org.apache.commons.dbutils.ResultSetHandler;
 import org.igormokritsky.databaseViewer.elements.ButtonElement;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
